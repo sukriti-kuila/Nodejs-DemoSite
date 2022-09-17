@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express ();
 const mongoose = require ("mongoose");
-const dbURI = "mongodb+srv://sukriti:98Sj4B3fzXQxxEH@cluster0.utfp6.mongodb.net/blog-db?retryWrites=true&w=majority";
+const dbURI = "";
 const Blog = require("./models/blog");
 
 app.set("view engine","ejs");
