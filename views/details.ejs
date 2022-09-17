@@ -1,0 +1,20 @@
+<%- include("./partials/header.ejs") %>
+<body>
+    <h1><%=blog.title %></h1>
+    <p><%=blog.body %></p>
+    <a data-doc="<%=blog._id %>" id="delete">DELETE BLOG</a>
+</body>
+<script>
+    const deleteBtn = document.querySelector("#delete");
+    deleteBtn.addEventListener("click", ()=> {
+        const endPoint = `/blogs/${deleteBtn.dataset.doc}`;
+        fetch (endPoint, {
+            method:"DELETE"
+        })
+        .then(response=> response.json())
+         // JSON data that is sent from the backend .then({redirect:"/blogs"})
+         .then (data => window.location.href=data.redirect)
+         .catch(err => console.log(err));
+    })
+</script>
+</html>
